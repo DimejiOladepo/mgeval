@@ -47,16 +47,16 @@ print(num_samples)
 evalset = { 
             'total_used_pitch': np.zeros((num_samples, 1))
           , 'pitch_range': np.zeros((num_samples, 1))
-          , 'avg_pitch_shift': np.zeros((num_samples, 1))
+        #   , 'avg_pitch_shift': np.zeros((num_samples, 1))
           , 'avg_IOI': np.zeros((num_samples, 1))
           , 'total_used_note': np.zeros((num_samples, 1))
-          , 'bar_used_pitch': np.zeros((num_samples, args.num_bar, 1))
-          , 'bar_used_note': np.zeros((num_samples, args.num_bar, 1))
+        #   , 'bar_used_pitch': np.zeros((num_samples, args.num_bar, 1))
+        #   , 'bar_used_note': np.zeros((num_samples, args.num_bar, 1))
           , 'total_pitch_class_histogram': np.zeros((num_samples, 12))
           , 'bar_pitch_class_histogram': np.zeros((num_samples, args.num_bar, 12))
-          , 'note_length_hist': np.zeros((num_samples, 12))
+        #   , 'note_length_hist': np.zeros((num_samples, 12))
           , 'pitch_class_transition_matrix': np.zeros((num_samples, 12, 12))
-          , 'note_length_transition_matrix': np.zeros((num_samples, 12, 12))
+        #   , 'note_length_transition_matrix': np.zeros((num_samples, 12, 12))
           }
 
 bar_metrics = [ 'bar_used_pitch', 'bar_used_note', 'bar_pitch_class_histogram' ]
@@ -68,7 +68,8 @@ for metric in bar_metrics:
 
 # print(evalset)
 
-metrics_list = evalset.keys()
+# metrics_list = evalset.keys()
+metrics_list = list(evalset)
 
 single_arg_metrics = (
     [ 'total_used_pitch'
@@ -139,6 +140,8 @@ for i, metric in enumerate(metrics_list):
     std = np.std(set1_eval[metric], axis=0).tolist()
 
     print(metric)
+    print(mean)
+    print(std)
     pprint(plot_set1_intra[i])
     pprint(plot_set2_intra[i])
     pprint(plot_sets_inter[i])

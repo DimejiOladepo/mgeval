@@ -1,3 +1,7 @@
 data/
 start.sh
 *.pyc
+.DS_Store
+generated_midi/
+original_amapiano_100/
+venv/
