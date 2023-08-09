@@ -1,4 +1,3 @@
-
 import json
 from argparse import ArgumentParser
 import midi
